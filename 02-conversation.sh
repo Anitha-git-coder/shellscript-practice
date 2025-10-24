@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo "ramesh::hi suresh1"
-echo "suresh:: hello ramesh2"
-echo "ramesh::hi suresh3"
-echo "suresh:: hello ramesh4"
+PERSON1=john
+PERSON2=Raheem
+echo "$PERSON1::hi PERSON2"
+echo "$PERSON2:: hello PERSON1"
+echo "$PERSON1::hi PERSON2"
+echo "$PERSON2:: hello PERSON1"
