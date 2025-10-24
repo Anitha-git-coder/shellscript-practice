@@ -2,4 +2,4 @@
 
 echo "enter pin"
 read PIN
-echo "$PIN"
+echo "pin entered is $PIN"
