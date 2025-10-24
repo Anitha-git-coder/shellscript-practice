@@ -1,4 +1,4 @@
 #!/bin/bash
 
-DATE =$(date)
+DATE=$(date)
 echo "timestamp executed is $DATE"
