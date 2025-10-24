@@ -1,0 +1,3 @@
+#!/bit/bash
+
+echo "the course is $COURSE"
