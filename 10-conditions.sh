@@ -6,3 +6,14 @@ if [ $NUMBER -lt 10 ]; then
 else
     echo "$NUMBER is gt eq 10"
 fi
+
+echo "plz enter a num"
+read NUMBER
+
+if [ $(($NUMBER % 2)) -eq 0 ]; then
+    echo "even"
+elif [ $(($NUMBER %2)) -ne 0 ]; then
+    echo "odd"
+else 
+    echo "not num"
+fi
