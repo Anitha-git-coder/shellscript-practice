@@ -12,7 +12,7 @@ VALIDATE(){# dont execute by itself ,executes only when called
     echo "error:: while installing $1"
     exit 1
  else 
-    echo "installing $2 is success"
+    echo "installing $2 is success-full"
 fi
 }
 
