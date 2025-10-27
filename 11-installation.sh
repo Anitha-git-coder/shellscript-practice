@@ -7,7 +7,7 @@ if [ $USERID  -ne 0 ]; then
     exit 1
 fi
 
-VALIDATE(){# dont execute by itself ,executes only when called
+VALIDATE(){ # dont execute by itself ,executes only when called
  if [ $1 -ne 0 ]; then
     echo "error:: while installing $1"
     exit 1
