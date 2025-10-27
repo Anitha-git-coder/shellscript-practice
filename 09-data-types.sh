@@ -10,3 +10,4 @@ echo "total is ${SUM}"
 LEADERS=("A" "S" "D" "F" "g")
 
 echo "print all ${LEADERS[@]}"
+echo "print first ${LEADERS[10]}"
