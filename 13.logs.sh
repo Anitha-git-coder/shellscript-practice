@@ -19,14 +19,14 @@ if [ $USERID  -ne 0 ]; then
 fi
 
 mkdir -p $LOGS_FOLDER
-echo "script started at $(date)"
+echo "script started at $(date)" | tee -a $LOG_FILE
 
 VALIDATE(){ # dont execute by itself ,executes only when called
  if [ $1 -ne 0 ]; then
-    echo -e "error:: while installing $1  $R failure $W"
+    echo -e "error:: while installing $1  $R failure $W" | tee -a $LOG_FILE
     exit 1
  else 
-    echo -e "installing $2 is $G success-full $W"
+    echo -e "installing $2 is $G success-full $W" | tee -a $LOG_FILE
 fi
 }
 
@@ -35,7 +35,7 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y &>>$LOG_FILE 
     VALIDATE $? "mysql"
 else 
-echo -e "$Y skipping $W"
+echo -e "$Y skipping $W" | tee -a $LOG_FILE
 fi
 
 dnf list installed nginx &>>$LOG_FILE 
@@ -43,7 +43,7 @@ if [ $? -ne 0 ]; then
     dnf install nginx -y &>>$LOG_FILE 
     VALIDATE $? "nginx"
 else 
-echo -e "$Y skipping $W"
+echo -e "$Y skipping $W" | tee -a $LOG_FILE
 fi
 
 dnf list installed python3 &>>$LOG_FILE 
@@ -51,7 +51,7 @@ if [ $? -ne 0 ]; then
     dnf install python3 -y &>>$LOG_FILE 
     VALIDATE $? "python3"
 else 
-echo -e "$Y skipping $W"
+echo -e "$Y skipping $W" | tee -a $LOG_FILE
 fi
 
 
