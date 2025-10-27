@@ -5,7 +5,43 @@ G="\e[32m"
 Y="\e[33m"
 W="\e[0m"
 
-echo -e "$R Anitha $W"
-echo -e "$G Anitha $W"
-echo -e "$Y Anitha $W"
-echo -e "$W Anitha $W"
+
+USERID=$(id -u)
+
+if [ $USERID  -ne 0 ]; then
+    echo "error :: run with root privelege"
+    exit 1
+fi
+
+VALIDATE(){ # dont execute by itself ,executes only when called
+ if [ $1 -ne 0 ]; then
+    echo "error:: while installing $1  $R failure $W"
+    exit 1
+ else 
+    echo "installing $2 is $G success-full $W"
+fi
+}
+
+dnf list installed mysql 
+if [ $? -ne 0 ]; then 
+    dnf install mysql -y
+    VALIDATE $? "mysql"
+else 
+echo "$Y skipping $W"
+fi
+
+dnf list installed nginx 
+if [ $? -ne 0 ]; then
+    dnf install nginx -y
+    VALIDATE $? "nginx"
+else 
+echo "$Y skipping $W"
+fi
+
+dnf list installed python3 
+if [ $? -ne 0 ]; then 
+    dnf install python3 -y
+    VALIDATE $? "python3"
+else 
+echo "$Y skipping $W"
+fi
