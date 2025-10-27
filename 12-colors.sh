@@ -9,16 +9,16 @@ W="\e[0m"
 USERID=$(id -u)
 
 if [ $USERID  -ne 0 ]; then
-    echo "error :: run with root privelege"
+    echo -e "error :: run with root privelege"
     exit 1
 fi
 
 VALIDATE(){ # dont execute by itself ,executes only when called
  if [ $1 -ne 0 ]; then
-    echo "error:: while installing $1  $R failure $W"
+    echo -e "error:: while installing $1  $R failure $W"
     exit 1
  else 
-    echo "installing $2 is $G success-full $W"
+    echo -e "installing $2 is $G success-full $W"
 fi
 }
 
@@ -27,7 +27,7 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y
     VALIDATE $? "mysql"
 else 
-echo "$Y skipping $W"
+echo -e "$Y skipping $W"
 fi
 
 dnf list installed nginx 
@@ -35,7 +35,7 @@ if [ $? -ne 0 ]; then
     dnf install nginx -y
     VALIDATE $? "nginx"
 else 
-echo "$Y skipping $W"
+echo -e "$Y skipping $W"
 fi
 
 dnf list installed python3 
@@ -43,5 +43,5 @@ if [ $? -ne 0 ]; then
     dnf install python3 -y
     VALIDATE $? "python3"
 else 
-echo "$Y skipping $W"
+echo -e "$Y skipping $W"
 fi
