@@ -7,11 +7,21 @@ if [ $USERID  -ne 0 ]; then
     exit 1
 fi
 
-dnf install mysql -y
-
-if [ $? -ne 0 ]; then
-    echo "error:: while installing"
+VALIDATE(){# dont execute by itself ,executes only when called
+ if [ $1 -ne 0 ]; then
+    echo "error:: while installing $1"
     exit 1
  else 
-    echo "installing mysql is success"
+    echo "installing $2 is success"
 fi
+}
+
+dnf install mysql -y
+VALIDATE $? "mysql"
+
+dnf install nginx -y
+VALIDATE $? "nginx"
+
+dnf install mongodb-mongosh -y
+VALIDATE $? "mongosh"
+
