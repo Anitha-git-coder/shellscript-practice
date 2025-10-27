@@ -1,5 +1,5 @@
 #!/bin/bang
-NUMBER=1$
+NUMBER=$1
 
 if [ $NUMBER -lt 10 ]; then
     echo "$NUMBER is less then 10 "
