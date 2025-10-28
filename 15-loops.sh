@@ -39,7 +39,7 @@ if [ $? -ne 0 ]; then
     dnf install $PACKAGE -y &>>$LOG_FILE
     VALIDATE $? "$PACKAGE"
     
-elif
-    echo"already  $PACKAGE installed $Y skipping $N"
+else
+    echo -e "already  $PACKAGE installed $Y skipping $N"
 fi   
 done 
