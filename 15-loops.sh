@@ -41,7 +41,5 @@ if [ $? -ne 0 ]; then
     
 elif
     echo"already  $PACKAGE installed $Y skipping $N"
-
-fi
-   
+fi   
 done 
