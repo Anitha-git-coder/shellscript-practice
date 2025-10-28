@@ -32,5 +32,16 @@ fi
 
 for PACKAGE in $@
 do 
-    echo "packages is: $PACKAGE"
+dnf list installed $PACKAGE &>>$LOG_FILE
+
+if [ $? -ne 0 ]; then 
+
+    dnf install $PACKAGE -y &>>$LOG_FILE
+    VALIDATE $? "$PACKAGE"
+    
+elif
+    echo"already  $PACKAGE installed $Y skipping $N"
+
+fi
+   
 done 
